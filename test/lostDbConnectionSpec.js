@@ -2,25 +2,13 @@ var express = require('express');
 var request = require('supertest');
 var chai = require('chai');
 var expect = chai.expect;
-var app = {};
 var bodyParser = require('body-parser');
 var mongoose = require('../mongoose.js');
 var app = require('../app.js');
 
 
 describe('sunny day', function () {
-    before(function(){
-         mongoose.connect();
-    })
     
-    after(function(){
-        mongoose.disconnect();
-    })
-    
-    beforeEach(function () {        
-           
-       
-    });
 
         it('should be able to add widgets', function (done) {
             request(app).post('/widget')

@@ -11,7 +11,7 @@ module.exports = {
         server: {
             auto_reconnect: true,
             socketOptions: {
-                connectTimeoutMS: 3600000,
+                connectTimeoutMS: 5000,
                 keepAlive: 1,
                 socketTimeoutMS: 3600000
             }
