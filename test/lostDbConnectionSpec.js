@@ -4,9 +4,18 @@ var chai = require('chai');
 var expect = chai.expect;
 var app = {};
 var bodyParser = require('body-parser');
+var mongoose = require('../mongoose.js');
 
 
 describe('sunny day', function () {
+    before(function(){
+         mongoose.connect();
+    })
+    
+    after(function(){
+        mongoose.disconnect();
+    })
+    
     beforeEach(function () {
         app = express();
         app.use(bodyParser.json());
@@ -20,7 +29,9 @@ describe('sunny day', function () {
         app.get('/widget', function (req, res, next) {
             res.status(200).send('ok');
             next();
-        })       
+        })     
+           
+       
     });
 
         it('should be able to add widgets', function (done) {

@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Widget = require('./models/Widget.js');
 var app = express();
 
-app.use(bodyParser());
+app.use(bodyParser.json());
 
 
 app.get('/widget', function (req, res, next) {
