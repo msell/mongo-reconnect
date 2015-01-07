@@ -5,6 +5,7 @@ var expect = chai.expect;
 var app = {};
 var bodyParser = require('body-parser');
 var mongoose = require('../mongoose.js');
+var app = require('../app.js');
 
 
 describe('sunny day', function () {
@@ -16,20 +17,7 @@ describe('sunny day', function () {
         mongoose.disconnect();
     })
     
-    beforeEach(function () {
-        app = express();
-        app.use(bodyParser.json());
-
-        app.post('/widget', function (req, res) {
-            res.json({
-                'name': 'foo'
-            });
-        })
-        
-        app.get('/widget', function (req, res, next) {
-            res.status(200).send('ok');
-            next();
-        })     
+    beforeEach(function () {        
            
        
     });
