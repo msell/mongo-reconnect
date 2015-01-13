@@ -30,6 +30,7 @@ module.exports = {
     });
 },
     disconnect : function(){
+        console.log('disconnect');
         mongoose.disconnect();
     }
 

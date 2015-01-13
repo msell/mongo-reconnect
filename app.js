@@ -2,10 +2,17 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('./mongoose');
 var Widget = require('./models/Widget.js');
+var timeout = require('connect-timeout');
+
 var app = express();
 
 app.use(bodyParser.json());
+app.use(timeout(2000));
+app.use(haltOnTimedout);
 
+function haltOnTimedout(req, res, next){
+  if (!req.timedout) next();
+}
 
 app.get('/widget', function (req, res, next) {
     Widget.find(function (err, widgets) {
